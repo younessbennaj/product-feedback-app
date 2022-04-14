@@ -1,0 +1,24 @@
+# We name the workflow "Test"
+name: Test
+# We configure it to run any time code is pushed to the server
+on: [push]
+
+jobs:
+  test:
+    # We configure a single job for the workflow, also named "Test"
+    name: Test
+    # We configure it to run on a specific version of the Ubuntu distribution of Linux.
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Dependencies
+        # --frozen-lockfile ensures Yarn won't install versions different from what is in the lockfile
+        run: yarn install --frozen-lockfile
+      - name: Unit Tests
+        # --watchAll=false flag ensures they won't continue running and watching for file changes
+        run: yarn test --watchAll=false
+      - name: E2E Tests
+        uses: cypress-io/github-action@v2
+        with:
+          start: yarn start
+          wait-on: 'http://localhost:3000'
