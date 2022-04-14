@@ -1,4 +1,16 @@
-# Getting Started with Create React App
+# Outside-in React App Boilerplate
+
+## Tech Stack
+
+- **Build Tooling:** Create React App
+- **State Management:** React State and Context API (we keep it simple)
+- **HTTP Client:** Axios
+- **UI Components:** Custom UI components build with HTML/SASS
+- **Test Runner:** Jest
+- **Component Tests:** React Testing Library
+- **End-to-End Tests:** Cypress
+- **Continuous Integration:** GitHub Actions
+- **Deployment:** Netlify \*\*\*\*
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
