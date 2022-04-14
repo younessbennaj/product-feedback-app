@@ -8,7 +8,7 @@ jobs:
     # We configure a single job for the workflow, also named "Test"
     name: Test
     # We configure it to run on a specific version of the Ubuntu distribution of Linux.
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Install Dependencies
