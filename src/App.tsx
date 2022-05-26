@@ -5,6 +5,7 @@ type ProductFeedbackType = {
   description: string
   id: number
   status: string
+  upvotes: number
 }
 
 type RequestProductFeedbackType = {
@@ -21,7 +22,14 @@ function App() {
           return suggestion.status === 'suggestion'
         }
       )
-      setSuggestions(productFeedbackFiltredBySuggestionStatus)
+
+      const productFeedbackFiltredBySuggestionStatusSortedByScore = [
+        ...productFeedbackFiltredBySuggestionStatus,
+      ].sort((a, b) => {
+        return b.upvotes - a.upvotes
+      })
+
+      setSuggestions(productFeedbackFiltredBySuggestionStatusSortedByScore)
     })
   }, [])
 
@@ -30,7 +38,10 @@ function App() {
       <h1 id='suggestions-heading'>Suggestions</h1>
       <ul aria-labelledby='suggestions-heading'>
         {suggestions.map((suggestion: ProductFeedbackType) => (
-          <li key={suggestion.id}>{suggestion.description}</li>
+          <li key={suggestion.id}>
+            <button>{suggestion.upvotes}</button>
+            <p>{suggestion.description}</p>
+          </li>
         ))}
       </ul>
     </section>
