@@ -46,4 +46,22 @@ describe('Product feedback suggestion page', () => {
         .should('eq', mockProductFeedbackWithSuggestionStatusCount)
     })
   })
+
+  it.only('User should be able to see the product feedback list ordered by upvote score', () => {
+    const greatestUpvoteScore = 112
+
+    cy.wait(['@getProductFeedbacks'])
+
+    // Expects the first item in suggestions list should the greatest upvote score
+    cy.findByRole('list', {
+      name: /suggestions/i,
+    }).within(() => {
+      // Find by aria "listitem" role to query all the listitem under the list
+      cy.findAllByRole('listitem')
+        .first()
+        .within(() => {
+          cy.findByRole('button').contains(greatestUpvoteScore)
+        })
+    })
+  })
 })
