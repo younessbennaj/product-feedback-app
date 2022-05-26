@@ -13,6 +13,21 @@ describe('Product feedback suggestion page', () => {
     // pass a Route Alias that forces Cypress to wait
     // until it sees a response for the request that matches this alias
     cy.wait(['@getProductFeedbacks'])
+
+    // Expects suggestions list exist in the visited page
+    // Find suggestions list by aria "list" role and by aria-label "suggestions" to ensure
+    // good testing practice
+    cy.findByRole('list', {
+      name: /suggestions/i,
+    }).should('exist')
+
+    // Expects suggestions list to have list items within
+    cy.findByRole('list', {
+      name: /suggestions/i,
+    }).within(() => {
+      // Find by aria "listitem" role to query all the listitem under the list
+      cy.findByRole('listitem').its('length').should('not.eq', 0)
+    })
   })
 
   it('User should be able to only see product feedbacks with "suggestion" status', () => {
