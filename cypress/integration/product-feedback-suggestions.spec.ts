@@ -26,7 +26,7 @@ describe('Product feedback suggestion page', () => {
       name: /suggestions/i,
     }).within(() => {
       // Find by aria "listitem" role to query all the listitem under the list
-      cy.findByRole('listitem').its('length').should('not.eq', 0)
+      cy.findAllByRole('listitem').its('length').should('not.eq', 0)
     })
   })
 
