@@ -47,7 +47,7 @@ describe('Product feedback suggestion page', () => {
     })
   })
 
-  it.only('User should be able to see the product feedback list ordered by upvote score', () => {
+  it('User should be able to see the product feedback list ordered by upvote score', () => {
     const greatestUpvoteScore = 112
 
     cy.wait(['@getProductFeedbacks'])
@@ -60,7 +60,38 @@ describe('Product feedback suggestion page', () => {
       cy.findAllByRole('listitem')
         .first()
         .within(() => {
-          cy.findByRole('button').contains(greatestUpvoteScore)
+          cy.findByRole('button', { name: 'upvote' })
+            .contains(greatestUpvoteScore)
+            .should('exist')
+        })
+    })
+  })
+
+  it('User should be able to see product feedback informations on list items', () => {
+    const category = 'Feature'
+    const commentsCount = 2
+    const description =
+      'Stay updated on comments and solutions other people post.'
+    const title = 'Ability to follow others'
+    const upvoteScore = 42
+    cy.wait(['@getProductFeedbacks'])
+
+    // Expects the first item in suggestions list should the greatest upvote score
+    cy.findByRole('list', {
+      name: /suggestions/i,
+    }).within(() => {
+      // Find by aria "listitem" role to query all the listitem under the list
+      cy.findAllByRole('listitem')
+        // Get the 4th one
+        .eq(3)
+        .within(() => {
+          cy.findByRole('heading', { level: 4, name: title })
+          cy.findByText(description).should('exist')
+          cy.findByRole('button', { name: 'upvote' })
+            .contains(upvoteScore)
+            .should('exist')
+          cy.findByRole('button', { name: 'comments' }).contains(commentsCount)
+          cy.findByText(category).should('exist')
         })
     })
   })
