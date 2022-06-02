@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { CommentsCount } from '../components/CommentsCount'
+import { CommentsCount } from '../components/atoms/CommentsCount'
 
 export default {
   component: CommentsCount,

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
-import { SuggestionListItem } from '../components/SuggestionListItem'
+import { SuggestionListItem } from '../components/atoms/SuggestionListItem'
 import { ProductFeedbackType, RequestProductFeedbackType } from '../types'
 
 export const SuggestionsPage: React.FC = () => {

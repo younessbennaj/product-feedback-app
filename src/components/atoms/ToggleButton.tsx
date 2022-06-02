@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import icon from '../assets/icon-arrow-up.svg'
+import icon from '../../assets/icon-arrow-up.svg'
 
 interface ToggleButtonProps {
   active?: boolean

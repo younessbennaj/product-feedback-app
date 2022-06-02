@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { ReactComponent as YourSvg } from '../assets/icon-comments.svg'
+import { ReactComponent as YourSvg } from '../../assets/icon-comments.svg'
 
 interface CommentsCountProps {
   count: number
