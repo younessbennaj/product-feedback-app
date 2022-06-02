@@ -11,9 +11,12 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
    }
 
+   h1,h2,h3,h4 {
+    font-family: 'Jost', sans-serif;
+   }
+
    p, span {
     color: ${theme.colors.jewelCave};
-    font-family: 'Jost', sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 23px;
