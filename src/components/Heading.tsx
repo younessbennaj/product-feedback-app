@@ -5,7 +5,7 @@ type HeadingTagType = 'h1' | 'h2' | 'h3' | 'h4'
 
 interface HeadingProps {
   as: HeadingTagType
-  children: string | JSX.Element
+  children: string | React.ReactNode
 }
 
 const headingFontStyles = {

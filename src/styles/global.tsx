@@ -16,6 +16,7 @@ export const GlobalStyle = createGlobalStyle`
    }
 
    p, span {
+    font-family: 'Jost', sans-serif;
     color: ${theme.colors.jewelCave};
     font-weight: 400;
     font-size: 16px;
