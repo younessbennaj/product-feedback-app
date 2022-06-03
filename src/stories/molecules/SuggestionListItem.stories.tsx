@@ -38,3 +38,18 @@ SuggestionsListItemWithSmallScreen.parameters = {
     defaultViewport: 'iphonex',
   },
 }
+
+export const SuggestionsListItemWithMediumScreen = () => (
+  <SuggestionsListItem {...componentProps} />
+)
+
+SuggestionsListItemWithMediumScreen.parameters = {
+  backgrounds: { default: 'dark' },
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/csaK8VSg1ojbjr3lrqvSz3/product-feedback-app?node-id=0%3A2701',
+  },
+  viewport: {
+    defaultViewport: 'ipad',
+  },
+}
