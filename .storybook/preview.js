@@ -16,6 +16,15 @@ export const decorators = [
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
+  backgrounds: {
+    default: 'light',
+    values: [
+      {
+        name: 'ghost-white',
+        value: '#F7F8FD',
+      },
+    ],
+  },
   controls: {
     matchers: {
       color: /(background|color)$/i,

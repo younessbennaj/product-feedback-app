@@ -13,13 +13,13 @@ type ReplyType = {
 type CommentType = {
   content: string
   id: number
-  replies: ReplyType[]
-  user: string
+  replies?: ReplyType[]
+  user: UserType
 }
 
 export type ProductFeedbackType = {
   category: string
-  comments: CommentType[]
+  comments?: CommentType[]
   description: string
   id: number
   status: string

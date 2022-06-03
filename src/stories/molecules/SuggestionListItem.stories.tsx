@@ -8,6 +8,7 @@ export default {
   component: SuggestionsListItem,
   decorators: [withDesign],
   parameters: {
+    backgrounds: { default: 'ghost-white' },
     viewport: {
       defaultViewport: 'responsive',
       viewports: INITIAL_VIEWPORTS,
@@ -29,7 +30,6 @@ export const SuggestionsListItemWithSmallScreen = () => (
 )
 
 SuggestionsListItemWithSmallScreen.parameters = {
-  backgrounds: { default: 'dark' },
   design: {
     type: 'figma',
     url: 'https://www.figma.com/file/csaK8VSg1ojbjr3lrqvSz3/product-feedback-app?node-id=0%3A345',
@@ -44,7 +44,6 @@ export const SuggestionsListItemWithMediumScreen = () => (
 )
 
 SuggestionsListItemWithMediumScreen.parameters = {
-  backgrounds: { default: 'dark' },
   design: {
     type: 'figma',
     url: 'https://www.figma.com/file/csaK8VSg1ojbjr3lrqvSz3/product-feedback-app?node-id=0%3A2701',
@@ -59,7 +58,6 @@ export const SuggestionsListItemWithLargeScreen = () => (
 )
 
 SuggestionsListItemWithLargeScreen.parameters = {
-  backgrounds: { default: 'dark' },
   design: {
     type: 'figma',
     url: 'https://www.figma.com/file/csaK8VSg1ojbjr3lrqvSz3/product-feedback-app?node-id=0%3A2190',

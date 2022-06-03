@@ -1,15 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import {
-  flexbox,
-  FlexboxProps,
-  layout,
-  LayoutProps,
-  space,
-  SpaceProps,
-} from 'styled-system'
+import { flexbox, FlexboxProps } from 'styled-system'
 
 import { capitalizeFirstLetter } from '../../utils'
+import { Box } from '../atoms/Box'
 import { CategoryLabel } from '../atoms/CategoryLabel'
 import { CommentsCount } from '../atoms/CommentsCount'
 import { Heading } from '../atoms/Heading'
@@ -23,12 +17,6 @@ type SuggestionsListItemProps = {
   title: string
   upvotes: number
 }
-
-const Box = styled.div<LayoutProps & SpaceProps & FlexboxProps>`
-  ${layout}
-  ${space}
-  ${flexbox};
-`
 
 const Flex = styled(Box)<FlexboxProps>`
   display: flex;

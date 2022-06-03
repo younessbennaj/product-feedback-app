@@ -23,6 +23,11 @@ export const GlobalStyle = createGlobalStyle`
     line-height: 23px;
    }
 
+   ul {
+    padding: 0;
+    margin: 0;
+   }
+
    li {
      list-style: none;
    }
