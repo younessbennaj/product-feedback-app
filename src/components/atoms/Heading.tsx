@@ -1,12 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-
-type HeadingTagType = 'h1' | 'h2' | 'h3' | 'h4'
-
-interface HeadingProps {
-  as: HeadingTagType
-  children: string | React.ReactNode
-}
+import { space, SpaceProps } from 'styled-system'
 
 const headingFontStyles = {
   h1: css`
@@ -27,14 +21,37 @@ const headingFontStyles = {
   `,
 }
 
-const StyledHeading = styled.div<{ as: HeadingTagType }>`
+type HeadingTagType = 'h1' | 'h2' | 'h3' | 'h4'
+
+type StyledHeadingProps = { as: HeadingTagType } & SpaceProps
+
+const StyledHeading = styled.div<StyledHeadingProps>`
   color: #3a4374;
   font-weight: 700;
-  ${({ as }) => {
-    return headingFontStyles[as]
-  }}
+  font-size: 13px;
+  line-height: 19px;
+  margin: 0;
+  @media (min-width: 600px) {
+    ${({ as }) => {
+      return headingFontStyles[as]
+    }}
+  }
+  ${space};
 `
 
-export const Heading: React.FC<HeadingProps> = ({ as, children }) => {
-  return <StyledHeading as={as}>{children}</StyledHeading>
+interface HeadingProps {
+  as: HeadingTagType
+  children: string | React.ReactNode
+}
+
+export const Heading: React.FC<HeadingProps & SpaceProps> = ({
+  as,
+  children,
+  ...props
+}) => {
+  return (
+    <StyledHeading as={as} {...props}>
+      {children}
+    </StyledHeading>
+  )
 }

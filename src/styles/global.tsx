@@ -22,4 +22,8 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 16px;
     line-height: 23px;
    }
+
+   li {
+     list-style: none;
+   }
  `

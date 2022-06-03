@@ -1,7 +1,7 @@
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 import React from 'react'
 
-import { Text } from '../components/atoms/Text'
+import { Text } from '../../components/atoms/Text'
 
 export default {
   component: Text,

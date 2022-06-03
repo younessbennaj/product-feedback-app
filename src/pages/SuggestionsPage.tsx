@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
-import { SuggestionListItem } from '../components/atoms/SuggestionListItem'
+import { SuggestionsListItem } from '../components/molecules/SuggestionsListItem'
 import { ProductFeedbackType, RequestProductFeedbackType } from '../types'
 
 export const SuggestionsPage: React.FC = () => {
@@ -29,7 +29,7 @@ export const SuggestionsPage: React.FC = () => {
       <h1 id='suggestions-heading'>Suggestions</h1>
       <ul aria-labelledby='suggestions-heading'>
         {suggestions.map((suggestion: ProductFeedbackType) => (
-          <SuggestionListItem
+          <SuggestionsListItem
             category={suggestion.category}
             commentsCount={suggestion.comments ? suggestion.comments.length : 0}
             description={suggestion.description}

@@ -2,7 +2,7 @@ import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 import React from 'react'
 import { withDesign } from 'storybook-addon-designs'
 
-import { UpVoteToggleButton } from '../components/atoms/ToggleButton'
+import { UpVoteToggleButton } from '../../components/atoms/ToggleButton'
 
 export default {
   component: UpVoteToggleButton,

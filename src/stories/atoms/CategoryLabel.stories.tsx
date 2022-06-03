@@ -1,7 +1,7 @@
 import React from 'react'
 import { withDesign } from 'storybook-addon-designs'
 
-import { CategoryLabel } from '../components/atoms/CategoryLabel'
+import { CategoryLabel } from '../../components/atoms/CategoryLabel'
 
 export default {
   component: CategoryLabel,
