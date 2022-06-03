@@ -53,3 +53,15 @@ SuggestionsListItemWithMediumScreen.parameters = {
     defaultViewport: 'ipad',
   },
 }
+
+export const SuggestionsListItemWithLargeScreen = () => (
+  <SuggestionsListItem {...componentProps} />
+)
+
+SuggestionsListItemWithLargeScreen.parameters = {
+  backgrounds: { default: 'dark' },
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/csaK8VSg1ojbjr3lrqvSz3/product-feedback-app?node-id=0%3A2190',
+  },
+}
