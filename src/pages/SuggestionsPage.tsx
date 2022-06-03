@@ -1,11 +1,13 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
-import { SuggestionsListItem } from '../components/molecules/SuggestionsListItem'
+import { SortedSuggestionsList } from '../components/organisms/SortedSuggestionsList'
 import { ProductFeedbackType, RequestProductFeedbackType } from '../types'
 
 export const SuggestionsPage: React.FC = () => {
-  const [suggestions, setSuggestions] = useState<ProductFeedbackType[]>([])
+  const [sortedSuggestions, setSortedSuggestions] = useState<
+    ProductFeedbackType[]
+  >([])
 
   useEffect(() => {
     axios.get<RequestProductFeedbackType>('/product-feedbacks').then((res) => {
@@ -21,24 +23,14 @@ export const SuggestionsPage: React.FC = () => {
         return b.upvotes - a.upvotes
       })
 
-      setSuggestions(productFeedbackFiltredBySuggestionStatusSortedByScore)
+      setSortedSuggestions(
+        productFeedbackFiltredBySuggestionStatusSortedByScore
+      )
     })
   }, [])
   return (
     <section>
-      <h1 id='suggestions-heading'>Suggestions</h1>
-      <ul aria-labelledby='suggestions-heading'>
-        {suggestions.map((suggestion: ProductFeedbackType) => (
-          <SuggestionsListItem
-            category={suggestion.category}
-            commentsCount={suggestion.comments ? suggestion.comments.length : 0}
-            description={suggestion.description}
-            key={suggestion.id}
-            title={suggestion.title}
-            upvotes={suggestion.upvotes}
-          />
-        ))}
-      </ul>
+      <SortedSuggestionsList sortedSuggestions={sortedSuggestions} />
     </section>
   )
 }

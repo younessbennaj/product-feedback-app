@@ -30,7 +30,7 @@ const CommentsCountWrapper = styled.div`
 
 export const CommentsCount: React.FC<CommentsCountProps> = ({ count }) => {
   return (
-    <CommentsCountWrapper>
+    <CommentsCountWrapper aria-role='comments-count'>
       <YourSvg />
       <span>{count}</span>
     </CommentsCountWrapper>

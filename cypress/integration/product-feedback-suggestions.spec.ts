@@ -85,12 +85,12 @@ describe('Product feedback suggestion page', () => {
         // Get the 4th one
         .eq(3)
         .within(() => {
-          cy.findByRole('heading', { level: 4, name: title })
+          cy.findByRole('heading', { level: 3, name: title })
           cy.findByText(description).should('exist')
           cy.findByRole('button', { name: 'upvote' })
             .contains(upvoteScore)
             .should('exist')
-          cy.findByRole('button', { name: 'comments' }).contains(commentsCount)
+          cy.findByText(commentsCount).should('exist')
           cy.findByText(category).should('exist')
         })
     })

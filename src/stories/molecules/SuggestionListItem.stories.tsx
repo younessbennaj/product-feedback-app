@@ -63,3 +63,15 @@ SuggestionsListItemWithLargeScreen.parameters = {
     url: 'https://www.figma.com/file/csaK8VSg1ojbjr3lrqvSz3/product-feedback-app?node-id=0%3A2190',
   },
 }
+
+export const SuggestionsListItemWithHoverState = () => (
+  <SuggestionsListItem {...componentProps} />
+)
+
+SuggestionsListItemWithHoverState.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/csaK8VSg1ojbjr3lrqvSz3/product-feedback-app?node-id=0%3A1633',
+  },
+  pseudo: { hover: true },
+}

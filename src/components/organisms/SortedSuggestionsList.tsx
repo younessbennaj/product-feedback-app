@@ -19,7 +19,7 @@ export const SortedSuggestionsList: React.FC<SortedSuggestionsListTypes> = ({
   sortedSuggestions,
 }) => {
   return (
-    <SortedSuggestionsListWrapper as='ul'>
+    <SortedSuggestionsListWrapper aria-label='suggestions' as='ul'>
       {sortedSuggestions.map((suggestion: ProductFeedbackType) => (
         <SuggestionsListItem
           category={suggestion.category}

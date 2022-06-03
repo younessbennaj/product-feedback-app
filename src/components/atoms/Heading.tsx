@@ -40,12 +40,12 @@ const StyledHeading = styled.div<StyledHeadingProps>`
 `
 
 interface HeadingProps {
-  as: HeadingTagType
+  as?: HeadingTagType
   children: string | React.ReactNode
 }
 
 export const Heading: React.FC<HeadingProps & SpaceProps> = ({
-  as,
+  as = 'h1',
   children,
   ...props
 }) => {

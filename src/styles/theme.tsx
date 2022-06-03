@@ -4,6 +4,7 @@ export const theme = {
   breakpoints,
   colors: {
     jewelCave: '#3A4374',
+    rainbowFish: '#4661e6',
   },
   mediaQueries: {
     large: `@media screen and (min-width: ${breakpoints[2]})`,

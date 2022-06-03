@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { flexbox, FlexboxProps } from 'styled-system'
 
+import { theme } from '../../styles/theme'
 import { capitalizeFirstLetter } from '../../utils'
 import { Box } from '../atoms/Box'
 import { CategoryLabel } from '../atoms/CategoryLabel'
@@ -26,6 +27,14 @@ const Flex = styled(Box)<FlexboxProps>`
 const SuggestionsListItemWrapper = styled(Flex)`
   background: #ffffff;
   border-radius: 10px;
+
+  &:hover {
+    cursor: pointer;
+
+    h3 {
+      color: ${theme.colors.rainbowFish};
+    }
+  }
 `
 
 export const SuggestionsListItem: React.FC<SuggestionsListItemProps> = ({
