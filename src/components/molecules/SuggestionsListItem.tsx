@@ -24,7 +24,13 @@ type SuggestionsListItemProps = {
   upvotes: number
 }
 
-const Flex = styled.div<FlexboxProps>`
+const Box = styled.div<LayoutProps & SpaceProps & FlexboxProps>`
+  ${layout}
+  ${space}
+  ${flexbox};
+`
+
+const Flex = styled(Box)<FlexboxProps>`
   display: flex;
   ${flexbox};
 `
@@ -32,13 +38,6 @@ const Flex = styled.div<FlexboxProps>`
 const SuggestionsListItemWrapper = styled(Flex)`
   background: #ffffff;
   border-radius: 10px;
-  padding: 24px;
-`
-
-const Box = styled.div<LayoutProps & SpaceProps & FlexboxProps>`
-  ${layout}
-  ${space}
-  ${flexbox};
 `
 
 export const SuggestionsListItem: React.FC<SuggestionsListItemProps> = ({
@@ -51,23 +50,24 @@ export const SuggestionsListItem: React.FC<SuggestionsListItemProps> = ({
   return (
     <li>
       <SuggestionsListItemWrapper
-        alignItems='center'
+        alignItems={['center', 'start']}
         flexWrap='wrap'
         justifyContent='space-between'
+        p={['24px', '28px 32px']}
       >
-        <Box order={1}>
+        <Box mr={['0px', '40px']} order={[1, 0]}>
           <UpVoteToggleButton label={upvotes} />
         </Box>
-        <Box flex='100%'>
-          <Heading as='h3' mb={2}>
+        <Box flex={['100%', 'auto']} order={[0, 1]}>
+          <Heading as='h3' mb={['8px', '4px']}>
             {title}
           </Heading>
-          <Text color='grey' mb={2}>
+          <Text color='grey' mb={['8px', '12px']}>
             {description}
           </Text>
-          <CategoryLabel label={capitalizeFirstLetter(category)} mb={3} />
+          <CategoryLabel label={capitalizeFirstLetter(category)} mb={[3, 0]} />
         </Box>
-        <Box order={2}>
+        <Box alignSelf='center' order={2}>
           <CommentsCount count={commentsCount} />
         </Box>
       </SuggestionsListItemWrapper>

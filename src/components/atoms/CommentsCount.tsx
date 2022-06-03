@@ -13,8 +13,14 @@ const CommentsCountWrapper = styled.div`
 
   span {
     font-weight: 700;
-    font-size: 16px;
-    line-height: 23px;
+    font-size: 13px;
+    line-height: 19px;
+
+    ${({ theme }) => `${theme.mediaQueries.small} {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 23px;
+    }`}
   }
 
   svg {
