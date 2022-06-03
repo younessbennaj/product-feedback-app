@@ -1,6 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import { flexbox, FlexboxProps } from 'styled-system'
+import {
+  flexbox,
+  FlexboxProps,
+  layout,
+  LayoutProps,
+  space,
+  SpaceProps,
+} from 'styled-system'
 
 import { capitalizeFirstLetter } from '../../utils'
 import { CategoryLabel } from '../atoms/CategoryLabel'
@@ -17,15 +24,21 @@ type SuggestionsListItemProps = {
   upvotes: number
 }
 
-const SuggestionsListItemWrapper = styled.div`
+const Flex = styled.div<FlexboxProps>`
+  display: flex;
+  ${flexbox};
+`
+
+const SuggestionsListItemWrapper = styled(Flex)`
   background: #ffffff;
   border-radius: 10px;
   padding: 24px;
 `
 
-const Flex = styled.div<FlexboxProps>`
-  display: flex;
-  ${flexbox}
+const Box = styled.div<LayoutProps & SpaceProps & FlexboxProps>`
+  ${layout}
+  ${space}
+  ${flexbox};
 `
 
 export const SuggestionsListItem: React.FC<SuggestionsListItemProps> = ({
@@ -37,18 +50,26 @@ export const SuggestionsListItem: React.FC<SuggestionsListItemProps> = ({
 }) => {
   return (
     <li>
-      <SuggestionsListItemWrapper>
-        <Heading as='h3' mb={2}>
-          {title}
-        </Heading>
-        <Text color='grey' mb={2}>
-          {description}
-        </Text>
-        <CategoryLabel label={capitalizeFirstLetter(category)} mb={3} />
-        <Flex flexDirection='row' justifyContent='space-between'>
+      <SuggestionsListItemWrapper
+        alignItems='center'
+        flexWrap='wrap'
+        justifyContent='space-between'
+      >
+        <Box order={1}>
           <UpVoteToggleButton label={upvotes} />
+        </Box>
+        <Box flex='100%'>
+          <Heading as='h3' mb={2}>
+            {title}
+          </Heading>
+          <Text color='grey' mb={2}>
+            {description}
+          </Text>
+          <CategoryLabel label={capitalizeFirstLetter(category)} mb={3} />
+        </Box>
+        <Box order={2}>
           <CommentsCount count={commentsCount} />
-        </Flex>
+        </Box>
       </SuggestionsListItemWrapper>
     </li>
   )
