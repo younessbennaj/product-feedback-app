@@ -1,6 +1,10 @@
 describe('Product feedback suggestion page', () => {
   beforeEach(() => {
     // Stubbing network call
+    cy.intercept('GET', '/product-feedbacks', {
+      fixture: 'product-feedbacks.json',
+    }).as('getProductFeedbacks')
+
     cy.intercept('POST', '/product-feedbacks', {
       fixture: 'new-product-feedback.json',
     }).as('postProductFeedbacks')
@@ -12,14 +16,21 @@ describe('Product feedback suggestion page', () => {
   })
 
   it.only('User should be redirected to product feedback suggestions form page after clicking on “add feedback” button', () => {
+    // pass a Route Alias that forces Cypress to wait
+    // until it sees a response for the request that matches this alias
     cy.wait(['@getProductFeedbacks'])
 
     // Expects that the user is redirected to the product feedback suggestions form page url
     cy.location('pathname').should('eq', '/add-suggestion')
 
+    // Expects "go back" button to be include in the current page
+    cy.findByRole('button', { name: 'Go Back' }).should('exist')
+
+    // Expects "go back" button to be include in the current page
+    cy.findByText('Create New Feedback').should('exist')
+
     // Expects that the product feedback suggestions form is include in the current page
-    cy.findByRole('form', { name: 'Create New Feedback' }).within(() => {
-      cy.findByRole('button', { name: 'Go Back' }).should('exist')
+    cy.findByRole('form', { name: 'suggestion-form' }).within(() => {
       cy.findByLabelText('Feedback Title').should('exist')
       cy.findByLabelText('Category').should('exist')
       cy.findByLabelText('Feedback Detail').should('exist')

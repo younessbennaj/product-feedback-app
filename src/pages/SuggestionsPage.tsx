@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import { SortedSuggestionsList } from '../components/organisms/SortedSuggestionsList'
 import { ProductFeedbackType, RequestProductFeedbackType } from '../types'
@@ -8,6 +9,8 @@ export const SuggestionsPage: React.FC = () => {
   const [sortedSuggestions, setSortedSuggestions] = useState<
     ProductFeedbackType[]
   >([])
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     axios.get<RequestProductFeedbackType>('/product-feedbacks').then((res) => {
@@ -30,6 +33,13 @@ export const SuggestionsPage: React.FC = () => {
   }, [])
   return (
     <section>
+      <button
+        onClick={() => {
+          navigate('/add-suggestion')
+        }}
+      >
+        <span>Add Feedback</span>
+      </button>
       <SortedSuggestionsList sortedSuggestions={sortedSuggestions} />
     </section>
   )
