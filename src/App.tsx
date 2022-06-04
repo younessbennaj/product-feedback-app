@@ -1,14 +1,9 @@
 import React from 'react'
 
-import { Button } from './components/Button'
+import { SuggestionsPage } from './pages/SuggestionsPage'
 
 function App() {
-  return (
-    <div>
-      <h1>Hello World!</h1>
-      <Button>click me</Button>
-    </div>
-  )
+  return <SuggestionsPage />
 }
 
 export default App

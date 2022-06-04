@@ -14,9 +14,9 @@ jobs:
       - name: Install Dependencies
         # --frozen-lockfile ensures Yarn won't install versions different from what is in the lockfile
         run: yarn install --frozen-lockfile
-      - name: Unit Tests
-        # --watchAll=false flag ensures they won't continue running and watching for file changes
-        run: yarn test --watchAll=false
+      # - name: Unit Tests
+      # --watchAll=false flag ensures they won't continue running and watching for file changes
+      # run: yarn test --watchAll=false
       - name: E2E Tests
         uses: cypress-io/github-action@v2
         with:
