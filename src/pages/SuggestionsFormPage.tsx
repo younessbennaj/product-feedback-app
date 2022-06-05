@@ -48,7 +48,17 @@ export const SuggestionsFormPage: React.FC<{
           return errors
         }}
       >
-        {({ dirty, errors, handleChange, handleSubmit, isValid, values }) => {
+        {({
+          dirty,
+          errors,
+          handleBlur,
+          handleChange,
+          handleSubmit,
+          isValid,
+          touched,
+          values,
+        }) => {
+          console.log(touched)
           return (
             <form aria-label='suggestion-form' onSubmit={handleSubmit}>
               <div>
@@ -56,15 +66,19 @@ export const SuggestionsFormPage: React.FC<{
                 <input
                   id='title'
                   name='title'
+                  onBlur={handleBlur}
                   onChange={handleChange}
                   value={values.title}
                 />
+                {errors.title}
+                {errors.title && touched.title && errors.title}
               </div>
               <div>
                 <label htmlFor='category'>Category</label>
                 <select
                   id='category'
                   name='category'
+                  onBlur={handleBlur}
                   onChange={handleChange}
                   value={values.category}
                 >
@@ -74,15 +88,20 @@ export const SuggestionsFormPage: React.FC<{
                   <option value='enhancement'>Enhancement</option>
                   <option value='bug'>Bug</option>
                 </select>
+                {errors.category && touched.category && errors.category}
               </div>
               <div>
                 <label htmlFor='description'>Feedback Detail</label>
                 <input
                   id='description'
                   name='description'
+                  onBlur={handleBlur}
                   onChange={handleChange}
                   value={values.description}
                 />
+                {errors.description &&
+                  touched.description &&
+                  errors.description}
               </div>
               <button onClick={() => navigate('/')}>
                 <span>Cancel</span>

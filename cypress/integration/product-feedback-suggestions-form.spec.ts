@@ -82,6 +82,18 @@ describe('Product feedback suggestion page', () => {
     })
   })
 
+  it.only('User should be able to see form validation error message after visiting required field', () => {
+    cy.findByRole('form', { name: 'suggestion-form' }).within(() => {
+      // Expects submit button to be disabled after filling title
+      cy.findByLabelText('Feedback Title')
+        .type('Add a localization option')
+        .clear()
+      cy.findByRole('button', { name: 'Add Feedback' }).should('be.disabled')
+
+      cy.findByText('Can’t be empty')
+    })
+  })
+
   it('User should be able to see his new product feedback suggestion into the suggestions list when he submit the form with the correct values', () => {
     cy.findByRole('form', { name: 'suggestion-form' }).within(() => {
       cy.findByLabelText('Feedback Title').type('Add a localization option')
