@@ -58,7 +58,6 @@ export const SuggestionsFormPage: React.FC<{
           touched,
           values,
         }) => {
-          console.log(touched)
           return (
             <form aria-label='suggestion-form' onSubmit={handleSubmit}>
               <div>

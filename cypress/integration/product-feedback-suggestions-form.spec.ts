@@ -82,7 +82,7 @@ describe('Product feedback suggestion page', () => {
     })
   })
 
-  it.only('User should be able to see form validation error message after visiting required field', () => {
+  it('User should be able to see form validation error message after visiting required field', () => {
     cy.findByRole('form', { name: 'suggestion-form' }).within(() => {
       // Expects submit button to be disabled after filling title
       cy.findByLabelText('Feedback Title')
