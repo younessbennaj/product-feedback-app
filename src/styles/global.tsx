@@ -23,6 +23,10 @@ export const GlobalStyle = createGlobalStyle`
     line-height: 23px;
    }
 
+   input, select, textarea {
+    font-family: 'Jost', sans-serif;
+   }
+
    ul {
     padding: 0;
     margin: 0;
