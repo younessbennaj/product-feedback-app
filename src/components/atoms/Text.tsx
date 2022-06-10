@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import styled from 'styled-components'
-import { space, SpaceProps } from 'styled-system'
+import { fontWeight, FontWeightProps, space, SpaceProps } from 'styled-system'
 
 interface TextProps {
   children: ReactNode
@@ -17,7 +17,9 @@ const textColor = {
   grey: '#647196',
 }
 
-const StyledText = styled.p<{ color?: string; size: string } & SpaceProps>`
+const StyledText = styled.p<
+  { color?: string; size: string } & SpaceProps & FontWeightProps
+>`
   color: ${({ color }) =>
     color ? textColor[color as keyof typeof textColor] : '#3a4374'};
   font-weight: 400;
@@ -31,9 +33,10 @@ const StyledText = styled.p<{ color?: string; size: string } & SpaceProps>`
     line-height: 23px;
   }
   ${space};
+  ${fontWeight};
 `
 
-export const Text: React.FC<TextProps & SpaceProps> = ({
+export const Text: React.FC<TextProps & SpaceProps & FontWeightProps> = ({
   children,
   color,
   size = 'default',

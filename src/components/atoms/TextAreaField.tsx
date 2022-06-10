@@ -37,11 +37,22 @@ const TextAreaFieldWrapper = styled(Flex)`
 
 export const TextAreaField: React.FC<{
   errorMessage?: string
+  id?: string
+  name?: string
+  onBlur?: any
+  onChange?: any
   value?: string
-}> = ({ errorMessage, value }) => {
+}> = ({ errorMessage, id, name, onBlur, onChange, value }) => {
   return (
     <TextAreaFieldWrapper flexDirection='column'>
-      <TextAreaFieldStyled hasError={!!errorMessage} value={value} />
+      <TextAreaFieldStyled
+        hasError={!!errorMessage}
+        id={id}
+        name={name}
+        onBlur={onBlur}
+        onChange={onChange}
+        value={value}
+      />
       <span>{errorMessage}</span>
     </TextAreaFieldWrapper>
   )

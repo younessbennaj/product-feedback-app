@@ -88,6 +88,7 @@ describe('Product feedback suggestion page', () => {
       cy.findByLabelText('Feedback Title')
         .type('Add a localization option')
         .clear()
+        .blur()
       cy.findByRole('button', { name: 'Add Feedback' }).should('be.disabled')
 
       cy.findByText('Can’t be empty')

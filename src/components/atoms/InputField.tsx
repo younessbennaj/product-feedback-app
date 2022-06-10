@@ -1,5 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
+import { space, SpaceProps } from 'styled-system'
 
 import { Flex } from './Flex'
 
@@ -32,13 +33,27 @@ const InputFieldWrapper = styled(Flex)`
   }
 `
 
-export const InputField: React.FC<{
-  errorMessage?: string
-  value?: string
-}> = ({ errorMessage, value }) => {
+export const InputField: React.FC<
+  {
+    errorMessage?: string
+    id?: string
+    name?: string
+    onBlur?: any
+    onChange?: any
+    value?: string
+  } & SpaceProps
+> = ({ errorMessage, id, name, onBlur, onChange, value, ...props }) => {
   return (
-    <InputFieldWrapper flexDirection='column'>
-      <InputFieldStyled hasError={!!errorMessage} type='text' value={value} />
+    <InputFieldWrapper flexDirection='column' {...props}>
+      <InputFieldStyled
+        hasError={!!errorMessage}
+        id={id}
+        name={name}
+        onBlur={onBlur}
+        onChange={onChange}
+        type='text'
+        value={value}
+      />
       <span>{errorMessage}</span>
     </InputFieldWrapper>
   )

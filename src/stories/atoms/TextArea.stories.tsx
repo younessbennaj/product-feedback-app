@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { TextAreaField } from '../../components/atoms/TextArea'
+import { TextAreaField } from '../../components/atoms/TextAreaField'
 
 export default {
   component: TextAreaField,

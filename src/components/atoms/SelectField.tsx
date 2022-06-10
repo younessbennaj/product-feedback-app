@@ -28,9 +28,21 @@ const SelectFieldStyled = styled.select`
   }
 `
 
-export const SelectField: React.FC = () => {
+export const SelectField: React.FC<{
+  id?: string
+  name?: string
+  onBlur?: any
+  onChange?: any
+  value?: string
+}> = ({ onBlur, onChange, value }) => {
   return (
-    <SelectFieldStyled id='category' name='category' value={'feature'}>
+    <SelectFieldStyled
+      id='category'
+      name='category'
+      onBlur={onBlur}
+      onChange={onChange}
+      value={value}
+    >
       <option value='feature'>Feature</option>
       <option value='ui'>UI</option>
       <option value='ux'>UX</option>
