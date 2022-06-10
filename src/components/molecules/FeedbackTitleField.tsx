@@ -1,8 +1,8 @@
 import { FormikHandlers } from 'formik'
 import React from 'react'
 
+import { FieldLabel } from '../atoms/FieldLabel'
 import { InputField } from '../atoms/InputField'
-import { Text } from '../atoms/Text'
 
 interface FeedbackTitleFieldProps {
   errorMessage: string
@@ -19,14 +19,11 @@ export const FeedbackTitleField: React.FC<FeedbackTitleFieldProps> = ({
 }) => {
   return (
     <>
-      <label htmlFor='title'>
-        <Text fontWeight={700} mb='2px'>
-          Feedback Title
-        </Text>
-      </label>
-      <Text color='grey' mb='16px'>
-        Add a short, descriptive headline
-      </Text>
+      <FieldLabel
+        htmlFor='title'
+        label='Feedback Title'
+        subLabel='Add a short, descriptive headline'
+      />
       <InputField
         errorMessage={errorMessage}
         id='title'

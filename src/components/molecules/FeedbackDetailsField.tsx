@@ -1,7 +1,7 @@
 import { FormikHandlers } from 'formik'
 import React from 'react'
 
-import { Text } from '../atoms/Text'
+import { FieldLabel } from '../atoms/FieldLabel'
 import { TextAreaField } from '../atoms/TextAreaField'
 
 interface FeedbackDetailsFieldProps {
@@ -19,14 +19,11 @@ export const FeedbackDetailsField: React.FC<FeedbackDetailsFieldProps> = ({
 }) => {
   return (
     <>
-      <label htmlFor='description'>
-        <Text fontWeight={700} mb='2px'>
-          Feedback Detail
-        </Text>
-      </label>
-      <Text color='grey' mb='16px'>
-        Include any specific comments on what should be improved, added, etc.
-      </Text>
+      <FieldLabel
+        htmlFor='description'
+        label='Feedback Detail'
+        subLabel='Include any specific comments on what should be improved, added, etc.'
+      />
       <TextAreaField
         errorMessage={errorMessage}
         id='description'

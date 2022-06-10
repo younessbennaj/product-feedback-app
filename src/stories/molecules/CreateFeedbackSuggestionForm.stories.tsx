@@ -40,3 +40,20 @@ CreateFeedbackSuggestionFormWithSmallScreen.parameters = {
     defaultViewport: 'iphonex',
   },
 }
+
+export const CreateFeedbackSuggestionFormWithMediumScreen = () => (
+  <CreateFeedbackSuggestionForm
+    addNewSuggestion={() => null}
+    onSubmit={() => null}
+  />
+)
+
+CreateFeedbackSuggestionFormWithMediumScreen.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/csaK8VSg1ojbjr3lrqvSz3/product-feedback-app?node-id=868%3A2',
+  },
+  viewport: {
+    defaultViewport: 'ipad',
+  },
+}

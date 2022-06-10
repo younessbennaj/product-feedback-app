@@ -1,4 +1,4 @@
-import { Formik, FormikHandlers } from 'formik'
+import { Formik } from 'formik'
 import * as React from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -10,8 +10,6 @@ import {
 import { Box } from '../atoms/Box'
 import { Button } from '../atoms/Button'
 import { Flex } from '../atoms/Flex'
-import { Text } from '../atoms/Text'
-import { TextAreaField } from '../atoms/TextAreaField'
 import { FeedbackCategorySelect } from './FeedbackCategorySelect'
 import { FeedbackDetailsField } from './FeedbackDetailsField'
 import { FeedbackTitleField } from './FeedbackTitleField'
@@ -86,8 +84,8 @@ export const CreateFeedbackSuggestionForm: React.FC<
                 value={values.description}
               />
             </Box>
-            <Flex flexDirection='column'>
-              <Box order={1}>
+            <Flex flexDirection={['column', 'row']} justifyContent='end'>
+              <Box mr={['0px', '16px']} order={[1, 0]}>
                 <Button
                   onClick={() => navigate('/')}
                   variant='secondary'
@@ -96,7 +94,7 @@ export const CreateFeedbackSuggestionForm: React.FC<
                   <span>Cancel</span>
                 </Button>
               </Box>
-              <Box mb='16px' order={0}>
+              <Box mb={['16px', '0px']} order={[0, 1]}>
                 <Button
                   disabled={!dirty || !isValid}
                   type='submit'

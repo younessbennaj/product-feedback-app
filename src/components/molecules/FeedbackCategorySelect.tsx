@@ -1,8 +1,8 @@
 import { FormikHandlers } from 'formik'
 import React from 'react'
 
+import { FieldLabel } from '../atoms/FieldLabel'
 import { SelectField } from '../atoms/SelectField'
-import { Text } from '../atoms/Text'
 
 interface FeedbackCategorySelectProps {
   handleBlur: FormikHandlers['handleBlur']
@@ -17,14 +17,11 @@ export const FeedbackCategorySelect: React.FC<FeedbackCategorySelectProps> = ({
 }) => {
   return (
     <>
-      <label htmlFor='category'>
-        <Text fontWeight={700} mb='2px'>
-          Category
-        </Text>
-      </label>
-      <Text color='grey' mb='16px'>
-        Choose a category for your feedback
-      </Text>
+      <FieldLabel
+        htmlFor='category'
+        label='Category'
+        subLabel='Choose a category for your feedback'
+      />
       <SelectField
         id='category'
         name='category'
