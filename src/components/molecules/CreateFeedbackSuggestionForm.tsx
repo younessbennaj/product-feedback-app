@@ -1,27 +1,20 @@
-import { Formik } from 'formik'
+import { Formik, FormikHandlers } from 'formik'
 import * as React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { ProductFeedbackType } from '../../types'
+import {
+  FormErrorsType,
+  FormValuesType,
+  ProductFeedbackType,
+} from '../../types'
 import { Box } from '../atoms/Box'
 import { Button } from '../atoms/Button'
 import { Flex } from '../atoms/Flex'
-import { InputField } from '../atoms/InputField'
-import { SelectField } from '../atoms/SelectField'
 import { Text } from '../atoms/Text'
 import { TextAreaField } from '../atoms/TextAreaField'
-
-type FormErrorsType = {
-  category?: string
-  description?: string
-  title?: string
-}
-
-type FormValuesType = {
-  category?: string
-  description?: string
-  title?: string
-}
+import { FeedbackCategorySelect } from './FeedbackCategorySelect'
+import { FeedbackDetailsField } from './FeedbackDetailsField'
+import { FeedbackTitleField } from './FeedbackTitleField'
 
 interface CreateFeedbackSuggestionFormProps {
   addNewSuggestion: (suggestion: ProductFeedbackType) => void
@@ -67,60 +60,29 @@ export const CreateFeedbackSuggestionForm: React.FC<
         return (
           <form aria-label='suggestion-form' onSubmit={handleSubmit}>
             <Box mb='16px'>
-              <label htmlFor='title'>
-                <Text fontWeight={700} mb='2px'>
-                  Feedback Title
-                </Text>
-              </label>
-              <Text color='grey' mb='16px'>
-                Add a short, descriptive headline
-              </Text>
-              <InputField
+              <FeedbackTitleField
                 errorMessage={errors.title && touched.title ? errors.title : ''}
-                id='title'
-                name='title'
-                onBlur={handleBlur}
-                onChange={handleChange}
+                handleBlur={handleBlur}
+                handleChange={handleChange}
                 value={values.title}
               />
             </Box>
             <Box mb='16px'>
-              <label htmlFor='category'>
-                <Text fontWeight={700} mb='2px'>
-                  Category
-                </Text>
-              </label>
-              <Text color='grey' mb='16px'>
-                Choose a category for your feedback
-              </Text>
-              <SelectField
-                id='category'
-                name='category'
-                onBlur={handleBlur}
-                onChange={handleChange}
+              <FeedbackCategorySelect
+                handleBlur={handleBlur}
+                handleChange={handleChange}
                 value={values.category}
               />
             </Box>
             <Box mb='32px'>
-              <label htmlFor='description'>
-                <Text fontWeight={700} mb='2px'>
-                  Feedback Detail
-                </Text>
-              </label>
-              <Text color='grey' mb='16px'>
-                Include any specific comments on what should be improved, added,
-                etc.
-              </Text>
-              <TextAreaField
+              <FeedbackDetailsField
                 errorMessage={
                   errors.description && touched.description
                     ? errors.description
                     : ''
                 }
-                id='description'
-                name='description'
-                onBlur={handleBlur}
-                onChange={handleChange}
+                handleBlur={handleBlur}
+                handleChange={handleChange}
                 value={values.description}
               />
             </Box>

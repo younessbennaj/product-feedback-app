@@ -1,6 +1,7 @@
+import { FormikHandlers } from 'formik'
 import * as React from 'react'
 import styled from 'styled-components'
-import { space, SpaceProps } from 'styled-system'
+import { SpaceProps } from 'styled-system'
 
 import { Flex } from './Flex'
 
@@ -38,8 +39,8 @@ export const InputField: React.FC<
     errorMessage?: string
     id?: string
     name?: string
-    onBlur?: any
-    onChange?: any
+    onBlur?: FormikHandlers['handleBlur']
+    onChange?: FormikHandlers['handleChange']
     value?: string
   } & SpaceProps
 > = ({ errorMessage, id, name, onBlur, onChange, value, ...props }) => {
