@@ -1,15 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
+import { SpaceProps } from 'styled-system'
 
 import { ReactComponent as IconLeft } from '../../assets/icon-arrow-left.svg'
+import { Box } from './Box'
 
-const InlineButtonStyled = styled.button`
+const InlineButtonStyled = styled(Box)`
   cursor: pointer;
   border: none;
   background: transparent;
   padding: 0;
   span {
-    margin-left: 16px;
     font-weight: 700;
     font-size: 14px;
     line-height: 20px;
@@ -23,13 +24,18 @@ const InlineButtonStyled = styled.button`
   }
 `
 
-export const InlineButton: React.FC<{
-  children: React.ReactNode
-}> = ({ children }) => {
+export const InlineButton: React.FC<
+  {
+    children: React.ReactNode
+    onClick?: () => void
+  } & SpaceProps
+> = ({ children, onClick, ...props }) => {
   return (
-    <InlineButtonStyled>
+    <InlineButtonStyled as='button' onClick={onClick} {...props}>
       <IconLeft />
-      <span>{children}</span>
+      <Box as='span' ml='16px'>
+        {children}
+      </Box>
     </InlineButtonStyled>
   )
 }

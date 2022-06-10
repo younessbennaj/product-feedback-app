@@ -11,7 +11,7 @@ export const FeedbackForm: React.FC<{
   onSubmit: (values: FormValuesType) => void
 }> = ({ addNewSuggestion, onSubmit }) => {
   return (
-    <Card mt='24px' position='relative'>
+    <Card mt='20px' position='relative'>
       <IconLabel left='24px' position='absolute' top='-20px' />
       <Heading as='h3' fontSize='18px' mb='24px'>
         Create New Feedback
