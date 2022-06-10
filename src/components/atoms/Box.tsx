@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 import {
+  border,
+  BorderProps,
   flexbox,
   FlexboxProps,
   layout,
@@ -8,7 +10,10 @@ import {
   SpaceProps,
 } from 'styled-system'
 
-export const Box = styled.div<LayoutProps & SpaceProps & FlexboxProps>`
+export const Box = styled.div<
+  BorderProps & LayoutProps & SpaceProps & FlexboxProps
+>`
+  ${border}
   ${layout}
   ${space}
   ${flexbox};
