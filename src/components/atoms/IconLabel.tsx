@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { PositionProps } from 'styled-system'
 
 import { ReactComponent as IconPlus } from '../../assets/icon-plus.svg'
 import { Flex } from './Flex'
@@ -13,7 +14,7 @@ const IconLabelWrapper = styled(Flex)`
   );
 `
 
-export const IconLabel: React.FC = () => {
+export const IconLabel: React.FC<PositionProps> = (props) => {
   return (
     <IconLabelWrapper
       alignItems='center'
@@ -21,6 +22,7 @@ export const IconLabel: React.FC = () => {
       height='40px'
       justifyContent='center'
       width='40px'
+      {...props}
     >
       <IconPlus />
     </IconLabelWrapper>
