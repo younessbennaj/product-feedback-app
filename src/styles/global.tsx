@@ -7,6 +7,7 @@ export const GlobalStyle = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&display=swap');
    }
    body {
+    background-color: #F7F8FD;
     padding: 0;
     margin: 0;
    }

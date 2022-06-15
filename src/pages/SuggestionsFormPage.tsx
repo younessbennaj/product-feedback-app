@@ -2,6 +2,7 @@ import axios from 'axios'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
+import { Box } from '../components/atoms/Box'
 import { Flex } from '../components/atoms/Flex'
 import { InlineButton } from '../components/atoms/InlineButton'
 import { FeedbackForm } from '../components/organisms/FeedbackForm'
@@ -20,15 +21,17 @@ export const SuggestionsFormPageComponent: React.FC<{
   const navigate = useNavigate()
 
   return (
-    <section>
-      <Flex alignItems='center' height='40px' mb='44px'>
-        <InlineButton onClick={() => navigate('/')}>
-          <span>Go Back</span>
-        </InlineButton>
-      </Flex>
+    <Box as='section' px={['24px', '0px']}>
+      <Box m='0 auto' maxWidth='540px' mt={['34px', '56px']}>
+        <Flex alignItems='center' height='40px' mb='44px'>
+          <InlineButton onClick={() => navigate('/')}>
+            <span>Go Back</span>
+          </InlineButton>
+        </Flex>
 
-      <FeedbackForm addNewSuggestion={addNewSuggestion} onSubmit={onSubmit} />
-    </section>
+        <FeedbackForm addNewSuggestion={addNewSuggestion} onSubmit={onSubmit} />
+      </Box>
+    </Box>
   )
 }
 

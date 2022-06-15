@@ -12,6 +12,10 @@ const IconLabelWrapper = styled(Flex)`
     #a337f6 53.09%,
     #28a7ed 100%
   );
+
+  svg {
+    transform: scale(1.3);
+  }
 `
 
 export const IconLabel: React.FC<PositionProps> = (props) => {
@@ -19,9 +23,9 @@ export const IconLabel: React.FC<PositionProps> = (props) => {
     <IconLabelWrapper
       alignItems='center'
       borderRadius='50%'
-      height='40px'
+      height={['40px', '56px']}
       justifyContent='center'
-      width='40px'
+      width={['40px', '56px']}
       {...props}
     >
       <IconPlus />

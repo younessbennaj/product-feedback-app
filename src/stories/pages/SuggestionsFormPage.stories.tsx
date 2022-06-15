@@ -39,7 +39,43 @@ SuggestionsFormPageWithSmallScreen.parameters = {
     type: 'figma',
     url: 'https://www.figma.com/file/csaK8VSg1ojbjr3lrqvSz3/product-feedback-app?node-id=913%3A4',
   },
+  layout: 'fullscreen',
   viewport: {
     defaultViewport: 'iphonex',
   },
+}
+
+export const SuggestionsFormPageWithMediumScreen = () => (
+  <SuggestionsFormPage
+    addNewSuggestion={action('new suggestion added')}
+    onSubmit={action('form submitted')}
+  />
+)
+
+SuggestionsFormPageWithMediumScreen.parameters = {
+  backgrounds: { default: 'ghost-white' },
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/csaK8VSg1ojbjr3lrqvSz3/product-feedback-app?node-id=0%3A810',
+  },
+  layout: 'fullscreen',
+  viewport: {
+    defaultViewport: 'ipad',
+  },
+}
+
+export const SuggestionsFormPageWithLargeScreen = () => (
+  <SuggestionsFormPage
+    addNewSuggestion={action('new suggestion added')}
+    onSubmit={action('form submitted')}
+  />
+)
+
+SuggestionsFormPageWithLargeScreen.parameters = {
+  backgrounds: { default: 'ghost-white' },
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/csaK8VSg1ojbjr3lrqvSz3/product-feedback-app?node-id=0%3A1986',
+  },
+  layout: 'fullscreen',
 }

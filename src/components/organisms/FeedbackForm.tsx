@@ -11,9 +11,13 @@ export const FeedbackForm: React.FC<{
   onSubmit: (values: FormValuesType) => void
 }> = ({ addNewSuggestion, onSubmit }) => {
   return (
-    <Card mt='20px' position='relative'>
-      <IconLabel left='24px' position='absolute' top='-20px' />
-      <Heading as='h3' fontSize='18px' mb='24px'>
+    <Card m='0 auto' maxWidth='540px' mt='20px' position='relative'>
+      <IconLabel
+        left={['24px', '42px']}
+        position='absolute'
+        top={['-20px', '-28px']}
+      />
+      <Heading as='h3' fontSize={['18px', '24px']} mb={['24px', '40px']}>
         Create New Feedback
       </Heading>
       <CreateFeedbackSuggestionForm

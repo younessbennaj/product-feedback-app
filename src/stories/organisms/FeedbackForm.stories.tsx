@@ -43,3 +43,36 @@ FeedbackFormWithSmallScreen.parameters = {
     defaultViewport: 'iphonex',
   },
 }
+
+export const FeedbackFormWithMediumScreen = () => (
+  <FeedbackForm
+    addNewSuggestion={action('new suggestion added')}
+    onSubmit={action('form submitted')}
+  />
+)
+
+FeedbackFormWithMediumScreen.parameters = {
+  backgrounds: { default: 'ghost-white' },
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/csaK8VSg1ojbjr3lrqvSz3/product-feedback-app?node-id=0%3A811',
+  },
+  viewport: {
+    defaultViewport: 'ipad',
+  },
+}
+
+export const FeedbackFormWithLargeScreen = () => (
+  <FeedbackForm
+    addNewSuggestion={action('new suggestion added')}
+    onSubmit={action('form submitted')}
+  />
+)
+
+FeedbackFormWithLargeScreen.parameters = {
+  backgrounds: { default: 'ghost-white' },
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/csaK8VSg1ojbjr3lrqvSz3/product-feedback-app?node-id=0%3A1988',
+  },
+}
