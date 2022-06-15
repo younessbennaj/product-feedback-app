@@ -30,3 +30,15 @@ export type ProductFeedbackType = {
 export type RequestProductFeedbackType = {
   data: ProductFeedbackType[]
 }
+
+export type FormErrorsType = {
+  category?: string
+  description?: string
+  title?: string
+}
+
+export type FormValuesType = {
+  category?: string
+  description?: string
+  title?: string
+}

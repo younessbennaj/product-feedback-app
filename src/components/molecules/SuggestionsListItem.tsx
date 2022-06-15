@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { flexbox, FlexboxProps } from 'styled-system'
 
 import { theme } from '../../styles/theme'
 import { capitalizeFirstLetter } from '../../utils'
 import { Box } from '../atoms/Box'
 import { CategoryLabel } from '../atoms/CategoryLabel'
 import { CommentsCount } from '../atoms/CommentsCount'
+import { Flex } from '../atoms/Flex'
 import { Heading } from '../atoms/Heading'
 import { Text } from '../atoms/Text'
 import { UpVoteToggleButton } from '../atoms/ToggleButton'
@@ -18,11 +18,6 @@ type SuggestionsListItemProps = {
   title: string
   upvotes: number
 }
-
-const Flex = styled(Box)<FlexboxProps>`
-  display: flex;
-  ${flexbox};
-`
 
 const SuggestionsListItemWrapper = styled(Flex)`
   background: #ffffff;
